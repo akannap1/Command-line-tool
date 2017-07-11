@@ -9,6 +9,7 @@ class UserPrompt
   INVALID_MESSAGE = 'Invalid Option, Please choose right option and try again ...'.freeze
   FIELD_NOT_FOUND = 'Field Doesnt Exist For The Entity'.freeze
   ENTITY_NOT_FOUND = 'Please select a valid entity'.freeze
+  RESULTS_NOT_FOUND = 'Results not Found ...'.freeze
 
   def self.print_list_of_entities
     print 'Select'
@@ -20,7 +21,7 @@ class UserPrompt
   end
 
   def self.pretty_print(list_of_results)
-    return print "No Results Found ..\n\n" if list_of_results.empty?
+    raise RESULTS_NOT_FOUND if list_of_results.empty?
     list_of_results.each do |element|
       puts '*' * 40
       element.each { |k, v| puts "#{k}\t\t#{v}" }
