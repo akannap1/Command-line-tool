@@ -18,7 +18,6 @@ class Main
   def execute_action
     puts UserPrompt::WELCOME_MESSAGE
     action_type = gets.chomp
-
     case action_type
     when '1'
       search
@@ -36,5 +35,3 @@ class Main
   end
 end
 
-
-Main.run
