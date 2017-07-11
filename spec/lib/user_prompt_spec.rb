@@ -45,14 +45,14 @@ RSpec.describe UserPrompt do
     end
   end
 
-  context 'Print List Of Entities' do
+  describe '.print_list_of_entities' do
     it { expect { UserPrompt.print_list_of_entities }.to output(/Select/).to_stdout }
     it { expect { UserPrompt.print_list_of_entities }.to output(/Organizations/).to_stdout }
     it { expect { UserPrompt.print_list_of_entities }.to output(/Tickets/).to_stdout }
     it { expect { UserPrompt.print_list_of_entities }.to output(/Users/).to_stdout }
   end
 
-  context 'Pretty Print' do
+  describe '.pretty_print' do
     it { expect { UserPrompt.pretty_print([]) }.to raise_error(/Results not Found/) }
     it { expect { UserPrompt.pretty_print(list_of_results) }.to output(/12/).to_stdout }
     it { expect { UserPrompt.pretty_print(list_of_results) }.to output(/admin/).to_stdout }
