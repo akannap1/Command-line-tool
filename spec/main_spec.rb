@@ -44,6 +44,19 @@ RSpec.describe Main do
       it { expect(@data).not_to include('name') }
     end
 
+    context 'selecting wrong input after welcome message ' do 
+      let(:select_wrong_input) { allow(Main).to receive(:gets).and_return('2', 'wrong_input') }
+ 
+      before(:each) do
+        select_wrong_input
+      end
+
+      it { expect { Main.send(:execute_action) }.to output(/valid entity/).to_stdout }
+      
+
+    end
+
+
     context 'while selecting a wrong input' do
       let(:select_invalid_option) { allow(Main).to receive(:gets).and_return('wrong input') }
 
