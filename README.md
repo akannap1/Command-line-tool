@@ -18,7 +18,8 @@ Description
 * Run 'rspec spec' 
 
 Assumptions
-* Assumption is data is all in json 
+* data all is in json 
+* number of keys are constant throughout all the data
 
 Features 
 * New data can be added by inputting json files in json_data directory
