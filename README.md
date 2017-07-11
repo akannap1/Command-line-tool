@@ -10,9 +10,6 @@ Description
 * bundle install (Do it in the Current directory)
 
  Start Command-line-Application 
-* Go to Current Directory
-
- Run application 
 * Go to App Directory
 * Run "ruby -r './main.rb' -e 'Main.run'"
 
