@@ -1,5 +1,5 @@
 class UserPrompt
-  WELCOME_MESSAGE = "Welcome To Zendesk Search\n" \
+  WELCOME_MESSAGE = "\nWelcome To Zendesk Search\n" \
 					  "\tSelect Search Options\n" \
 					  "\t* Press 1 to search \n" \
 					  "\t* Press 2 to view a list of searchable fields\n" \
