@@ -1,6 +1,7 @@
 # Command-line-tool
 
-command line tool for search
+Description 
+* Simple Command line tool for search
 
  ProjectSetup Instructions
 * Install ruby latest version 
@@ -12,12 +13,16 @@ command line tool for search
 * Go to Current Directory
 
  Run application 
-* ruby  ruby -r './main.rb' -e 'Main.run'
+* Go to App Directory
+* Run "ruby -r './main.rb' -e 'Main.run'"
 
  Run Tests 
-* Go to Current Direcory
-* Do: rspec spec 
-* rspec spec -f doc (it allows you to read through all the specs)
+* Go to App Direcory
+* Run 'rspec spec' 
 
 Assumptions
-*
+* Assumption is data is all in json 
+
+Features 
+* New data can be added by inputting json files in json_data directory
+* You can read through all the specs by doing 'rspec spec -f doc'
