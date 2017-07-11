@@ -32,6 +32,10 @@ RSpec.describe UserPrompt do
     it { expect(UserPrompt::FIELD_NOT_FOUND).to include('For The Entity') }
   end
 
+  context 'Results Not Found' do 
+    it { expect(UserPrompt::RESULTS_NOT_FOUND).to include('Results not Found') }
+  end
+
   context 'Entity File Paths' do
     it 'should include .json' do
       file_paths.each do |path|
@@ -41,15 +45,15 @@ RSpec.describe UserPrompt do
     end
   end
 
-  context 'Print List Of Entities' do
+  describe '.print_list_of_entities' do
     it { expect { UserPrompt.print_list_of_entities }.to output(/Select/).to_stdout }
     it { expect { UserPrompt.print_list_of_entities }.to output(/Organizations/).to_stdout }
     it { expect { UserPrompt.print_list_of_entities }.to output(/Tickets/).to_stdout }
     it { expect { UserPrompt.print_list_of_entities }.to output(/Users/).to_stdout }
   end
 
-  context 'Pretty Print' do
-    it { expect { UserPrompt.pretty_print([]) }.to output(/No Results Found/).to_stdout }
+  describe '.pretty_print' do
+    it { expect { UserPrompt.pretty_print([]) }.to raise_error(/Results not Found/) }
     it { expect { UserPrompt.pretty_print(list_of_results) }.to output(/12/).to_stdout }
     it { expect { UserPrompt.pretty_print(list_of_results) }.to output(/admin/).to_stdout }
     it { expect { UserPrompt.pretty_print(list_of_results) }.to output(/_id/).to_stdout }
