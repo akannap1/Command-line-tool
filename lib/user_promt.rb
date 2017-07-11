@@ -24,7 +24,7 @@ class UserPrompt
     raise RESULTS_NOT_FOUND if list_of_results.empty?
     list_of_results.each do |element|
       puts '*' * 40
-      element.each { |k, v| puts "#{k}\t\t#{v}" }
+      element.each { |k, v| printf("%-30s %s\n", k, v) }
       puts '*' * 40
     end
   end
