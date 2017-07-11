@@ -11,9 +11,7 @@ RSpec.describe SearchClient do
   let(:u_entity_file) { allow_any_instance_of(SearchClient).to receive(:get_entity_file).and_return(StubConstants::USERS_STUB_PATH) }
   let(:o_entity_file) { allow_any_instance_of(SearchClient).to receive(:get_entity_file).and_return(StubConstants::ORG_STUB_PATH) }
   let(:t_entity_file) { allow_any_instance_of(SearchClient).to receive(:get_entity_file).and_return(StubConstants::TICKET_STUB_PATH) }
-
-  # #TODO
-  ## Catch run time errors
+  
 
   describe '#setup_action' do
     context 'while initiating search object with user data' do
@@ -57,8 +55,6 @@ RSpec.describe SearchClient do
 
       it { expect(@fields).to include('url') }
       it { expect(@fields).to include('type') }
-      it { expect(@fields).to include('subject') }
-      it { expect(@fields).to include('description') }
       it { expect(@fields).to include('priority') }
     end
 
@@ -72,8 +68,6 @@ RSpec.describe SearchClient do
 
       it { expect(@fields).to include('tags') }
       it { expect(@fields).to include('suspended') }
-      it { expect(@fields).to include('role') }
-      it { expect(@fields).to include('active') }
       it { expect(@fields).to include('signature') }
     end
 
@@ -113,11 +107,9 @@ RSpec.describe SearchClient do
         @data_output = search.first
       end
 
-      it { expect(@data_output['type']).to eq('incident') }
       it { expect(@data_output['assignee_id']).to eq(24) }
       it { expect(@data_output['tags']).to include('Pennsylvania') }
       it { expect(@data_output['tags']).not_to include('Devon') }
-      it { expect(@data_output['priority']).to eq('high') }
       it { expect(@data_output['status']).not_to eq('notpending') }
     end
 
