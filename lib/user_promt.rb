@@ -23,9 +23,15 @@ class UserPrompt
   def self.pretty_print(list_of_results)
     raise RESULTS_NOT_FOUND if list_of_results.empty?
     list_of_results.each do |element|
-      puts '*' * 40
+      print_stat
       element.each { |k, v| printf("%-30s %s\n", k, v) }
-      puts '*' * 40
+      print_stat
     end
+  end
+
+  private
+
+  def self.print_stat
+    puts '*' * 40
   end
 end
